@@ -1,11 +1,11 @@
 #Пользователь вводит 3 числа, сказать сколько из них положительных и сколько отрицательных
 
-list_number = [int(input('Введите число:')) for i in range(3)]
+first_number = int(input('Введите первое число:'))
+second_number = int(input('Введите второе число:'))
+third_number = int(input('Введите третье число:'))
 
-count = 0
-for num in list_number:
-    if num < 0:
-        count += 1
+positive_count = (first_number > 0) + (second_number > 0) + (third_number > 0)
+negative_count = (first_number < 0) + (second_number < 0) + (third_number < 0)
 
-print('Количество положительных чисел:',len(list_number) - count)
-print('Количество отрицательных чисел:',count)
+print('Количество положительных чисел:', positive_count)
+print('Количество отрицательных чисел:', negative_count)
