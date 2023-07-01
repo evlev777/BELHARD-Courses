@@ -14,15 +14,18 @@ data_list = [
 ]
 
 def del_item_dict(user_list):
+    sub_list = []
 
-    for i in range(len(user_list) - 1, -1, -1):
-        if user_list[i].get('category_id') == 1:
-            del user_list[i]
-        elif user_list[i].get('category_id') == 2:
-            user_list[i].get('price', 0) * 0.95
-        else:
+    for item_list in user_list:
+        if item_list['category_id'] == 1:
+            del item_list
             continue
+        elif item_list['category_id'] == 2:
+            item_list['price'] -= item_list['price'] * 0.05
 
-    return user_list
+        sub_list.append(item_list)
+
+    return sub_list
 
 print(del_item_dict(data_list))
+
