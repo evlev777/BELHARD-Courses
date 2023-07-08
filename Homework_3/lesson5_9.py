@@ -18,7 +18,6 @@ def del_item_dict(user_list):
 
     for item_list in user_list:
         if item_list['category_id'] == 1:
-            del item_list
             continue
         elif item_list['category_id'] == 2:
             item_list['price'] -= item_list['price'] * 0.05

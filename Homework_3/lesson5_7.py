@@ -21,8 +21,6 @@ def average_value_list(user_list):
         if item_data_list.get('price'):
             count_key += 1
             price_sum += item_data_list.get('price', 0)
-        else:
-            continue
 
     return price_sum / count_key
 
