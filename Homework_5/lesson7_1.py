@@ -45,17 +45,17 @@ class ConfigParser:
             raise ValueError
         self.data[section] = {}
 
-    def add_param(self, section, key, value):
+    def add_param(self, section: str, key: str, value: str) -> None:
 
         if not self.has_section(section):
             raise ValueError
 
         self.data[section][key] = value
 
-    def del_section(self, section):
+    def del_section(self, section: str) -> None:
         del self.data[section]
 
-    def del_param(self, section, key):
+    def del_param(self, section: str, key: str) -> None:
 
         if not self.has_section(section):
             raise ValueError
@@ -64,6 +64,15 @@ class ConfigParser:
 
         del self.data[section][key]
 
+    def dumps(self) -> str:
+        list_data = []
+
+        for i, j in self.data.items():
+            list_data.append(f'[{i}]')
+            for k, l in j.items():
+                list_data.append(f'{k}={l}')
+
+        return '\n'.join(list_data)
 
 
 
@@ -98,3 +107,4 @@ print(res.del_section('Section3'))
 print(res.del_param('Section2', 'key6'))
 
 print(res.data)
+print(res.dumps())
